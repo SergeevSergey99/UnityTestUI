@@ -42,7 +42,7 @@ public class PowerPointManager : MonoBehaviour
             slot.onClick.AddListener(() =>
             {
                 _currentSlideIndex = index;
-                UpdateSlide();
+                UpdateSlideWithAnimation();
                 UpdateSlotsColors();
             });
         }
@@ -61,22 +61,31 @@ public class PowerPointManager : MonoBehaviour
     }
     void UpdateSlide()
     {
-        _leftButton.interactable = _currentSlideIndex > 0;
-        _rightButton.interactable = _currentSlideIndex < _slideListData.Count - 1;
-        
+        CheckArrows();
         _slideView.SetSlideData(_currentSlideData);
+    }
+    void UpdateSlideWithAnimation()
+    {
+        CheckArrows();
+        _slideView.SetSlideDataWithAnimation(_currentSlideData);
     }
     
     #region Arrow Buttons
     void OnLeftButtonClicked()
     {
         _currentSlideIndex--;
-        UpdateSlide();
+        UpdateSlideWithAnimation();
     }
     void OnRightButtonClicked()
     {
         _currentSlideIndex++;
-        UpdateSlide();
+        UpdateSlideWithAnimation();
+    }
+
+    public void CheckArrows()
+    {
+        _leftButton.interactable = _currentSlideIndex > 0;
+        _rightButton.interactable = _currentSlideIndex < _slideListData.Count - 1;
     }
     #endregion
 }

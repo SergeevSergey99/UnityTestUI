@@ -176,6 +176,8 @@ MonoBehaviour:
   _image: {fileID: 292711210}
   _descriptionText: {fileID: 273968188}
   _aspectRatioFitter: {fileID: 292711209}
+  _slideArea: {fileID: 536606575}
+  _animationTime: 0.2
 --- !u!1 &273968186
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +608,7 @@ GameObject:
   - component: {fileID: 536606577}
   - component: {fileID: 536606576}
   m_Layer: 5
-  m_Name: Slide
+  m_Name: SlideToRotateArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1555,7 +1557,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 70.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
