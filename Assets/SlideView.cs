@@ -12,12 +12,19 @@ public class SlideView : MonoBehaviour
     [SerializeField] private AspectRatioFitter _aspectRatioFitter;
     [SerializeField] private Transform _slideArea;
     [SerializeField] private float _animationTime = 0.2f;
-    public void SetSlideData(SlideData slideData)
+    PowerPointManager _powerPointManager;
+    public void Init(SlideData slideData, PowerPointManager powerPointManager)
+    {
+        _powerPointManager = powerPointManager;
+        SetSlideData(slideData);
+    }
+    private void SetSlideData(SlideData slideData)
     {
         _titleText.text = slideData.title;
         _image.sprite = slideData.sprite;
         _aspectRatioFitter.aspectRatio = slideData.sprite == null ? 1 : (float)slideData.sprite.texture.width / slideData.sprite.texture.height;
         _descriptionText.text = slideData.description;
+        _powerPointManager.UpdateSlotsColors();
     }
     
     // Не хочу портировать DOTween в этот проект, поэтому просто корутина

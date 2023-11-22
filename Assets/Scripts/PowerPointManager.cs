@@ -49,7 +49,7 @@ public class PowerPointManager : MonoBehaviour
         
         UpdateSlotsColors();
     }
-    void UpdateSlotsColors()
+    public void UpdateSlotsColors()
     {
         for (int i = 0; i < _slideSlots.Count; i++)
         {
@@ -62,7 +62,7 @@ public class PowerPointManager : MonoBehaviour
     void UpdateSlide()
     {
         CheckArrows();
-        _slideView.SetSlideData(_currentSlideData);
+        _slideView.Init(_currentSlideData, this);
     }
     void UpdateSlideWithAnimation()
     {
